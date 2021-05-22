@@ -32,7 +32,7 @@ export default function Account({ session }: { session: AuthSession }) {
       const user = supabase.auth.user();
       const file = event.target.files[0];
       const fileExt = file.name.split(".").pop();
-      const fileName = `${session?.user.id}${Math.random()}.${fileExt}`;
+      const fileName = `${session?.user?.id}${Math.random()}.${fileExt}`;
       const filePath = `${fileName}`;
 
       let { error: uploadError } = await supabase.storage
@@ -133,7 +133,7 @@ export default function Account({ session }: { session: AuthSession }) {
       </div>
       <div>
         <label htmlFor="email">Email</label>
-        <input id="email" type="text" value={session.user.email} disabled />
+        <input id="email" type="text" value={session?.user?.email} disabled />
       </div>
       <div>
         <label htmlFor="username">Name</label>

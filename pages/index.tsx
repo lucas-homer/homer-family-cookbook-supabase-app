@@ -50,7 +50,7 @@ export default function Home() {
         <div className="row">
           <div className="col-6">
             <h3>Account</h3>
-            <Account key={session.user.id} session={session} />
+            <Account key={session?.user?.id} session={session} />
           </div>
           <div className="col-6">
             <h3>Public Profiles</h3>
