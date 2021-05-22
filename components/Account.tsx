@@ -2,10 +2,10 @@ import { useState, useEffect, ChangeEvent } from "react";
 import { supabase } from "../lib/supabaseClient";
 import UploadButton from "../components/UploadButton";
 import Avatar from "./Avatar";
-import { AuthSession } from "@supabase/supabase-js";
+import { Session } from "@supabase/supabase-js";
 import { DEFAULT_AVATARS_BUCKET, Profile } from "../lib/constants";
 
-export default function Account({ session }: { session: AuthSession }) {
+export default function Account({ session }: { session: Session | null }) {
   const [loading, setLoading] = useState<boolean>(true);
   const [uploading, setUploading] = useState<boolean>(false);
   const [avatar, setAvatar] = useState<string | null>(null);
