@@ -5,7 +5,7 @@ import Auth from "../components/Auth";
 import { useUser } from "../contexts/UserContext";
 
 const MyAccount = () => {
-  const { session, user } = useUser();
+  const { session } = useUser();
 
   return (
     <Layout style={{ padding: "50px 0 100px 0" }} title="My Account">
@@ -15,7 +15,7 @@ const MyAccount = () => {
         <div className="row">
           <div className="col-12">
             <h3>My Account</h3>
-            <Account key={user?.id} session={session} />
+            <Account session={session} />
           </div>
         </div>
       )}

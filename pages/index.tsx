@@ -1,35 +1,12 @@
 import Auth from "../components/Auth";
 import ProfileList from "../components/ProfileList";
-import { useState, useEffect } from "react";
-import { supabase } from "../lib/supabaseClient";
-import { Profile } from "../lib/constants";
 import Layout from "../components/Layout";
 import { useUser } from "../contexts/UserContext";
+import { usePublicProfiles } from "../lib/usePublicProfiles";
 
 export default function Home() {
   const { session } = useUser();
-  const [profiles, setProfiles] = useState<Profile[]>([]);
-
-  useEffect(() => {
-    getPublicProfiles();
-  }, []);
-
-  async function getPublicProfiles() {
-    try {
-      const { data, error } = await supabase
-        .from<Profile>("profiles")
-        .select("id, username, avatar_url, website, updated_at")
-        .order("updated_at", { ascending: false });
-
-      if (error || !data) {
-        throw error || new Error("No data");
-      }
-      console.log("Public profiles:", data);
-      setProfiles(data);
-    } catch (error) {
-      console.log("error", error.message);
-    }
-  }
+  const { data: profiles } = usePublicProfiles();
 
   return (
     <Layout style={{ padding: "50px 0 100px 0" }} title="Homer Family Cookbook">
