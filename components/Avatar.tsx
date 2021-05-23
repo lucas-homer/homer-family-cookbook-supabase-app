@@ -4,10 +4,12 @@ import { DEFAULT_AVATARS_BUCKET } from "../lib/constants";
 
 export default function Avatar({
   url,
-  size
+  size,
+  className
 }: {
   url: string | null;
   size: number;
+  className: string | undefined;
 }) {
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
 
@@ -33,10 +35,10 @@ export default function Avatar({
   return avatarUrl ? (
     <img
       src={avatarUrl}
-      className="avatar image"
+      className={className}
       style={{ height: size, width: size }}
     />
   ) : (
-    <div className="avatar no-image" style={{ height: size, width: size }} />
+    <div className={className} style={{ height: size, width: size }} />
   );
 }

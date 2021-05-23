@@ -8,12 +8,12 @@ const MyAccount = () => {
   const { session } = useUser();
 
   return (
-    <Layout style={{ padding: "50px 0 100px 0" }} title="My Account">
+    <Layout title="My Account">
       {!session ? (
         <Auth />
       ) : (
-        <div className="row">
-          <div className="col-12">
+        <div className="">
+          <div className="">
             <h3>My Account</h3>
             <Account session={session} />
           </div>

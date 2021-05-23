@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { supabase } from "../lib/supabaseClient";
-// import styles from '../styles/Auth.module.css'
 
 export default function Auth({}) {
   const [loading, setLoading] = useState(false);
@@ -22,38 +21,37 @@ export default function Auth({}) {
   };
 
   return (
-    <div className="row">
-      <div className="col-6">
-        <h1 className="header">Homer Family Cookbook</h1>
+    <div className="grid grid-cols-2 grid-rows-1 gap-6">
+      <div className="">
+        <h1 className="">Homer Family Cookbook</h1>
         <p className="">
           Find your favorite recipes, comment on them, or add your own. Create a
           user profile and upload an avatar image.
         </p>
       </div>
-      <div className="col-6 auth-widget">
-        <p className="description">
-          Sign in via magic link with your email below
-        </p>
-        <div>
+      <div className="grid grid-rows-3 grid-cols-1 gap-4">
+        <p className="">Sign in via magic link with your email below</p>
+        <label>
+          Email
           <input
-            className="inputField"
+            className="ml-2 pl-1 bg-gray-100 w-full"
             type="email"
             placeholder="Your email"
             value={email}
             onChange={e => setEmail(e.target.value)}
           />
-        </div>
+        </label>
         <div>
           <button
             onClick={e => {
               e.preventDefault();
               handleLogin(email);
             }}
-            className={"button block"}
+            className="bg-blue-800 text-white py-2 px-4 rounded-md"
             disabled={loading}
           >
             {loading ? (
-              <img className="loader" src="loader.svg" />
+              <img className="" src="loader.svg" />
             ) : (
               <span>Send magic link</span>
             )}

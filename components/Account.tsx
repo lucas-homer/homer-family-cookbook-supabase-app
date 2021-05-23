@@ -117,15 +117,15 @@ export default function Account({ session }: { session: Session | null }) {
   }
 
   return (
-    <div className="account">
+    <div className="">
       <div>
         <label htmlFor="avatar">Avatar image</label>
-        <div className="avatarField">
-          <div className="avatarContainer">
+        <div className="">
+          <div className="">
             {avatar ? (
               <Avatar url={avatar} size={35} />
             ) : (
-              <div className="avatarPlaceholder">?</div>
+              <div className="">?</div>
             )}
           </div>
           <UploadButton onUpload={uploadAvatar} loading={uploading} />
@@ -155,17 +155,13 @@ export default function Account({ session }: { session: Session | null }) {
       </div>
 
       <div>
-        <button
-          className="button block primary"
-          onClick={() => updateProfile()}
-          disabled={loading}
-        >
+        <button className="" onClick={() => updateProfile()} disabled={loading}>
           {loading ? "Loading ..." : "Update"}
         </button>
       </div>
 
       <div>
-        <button className="button block" onClick={() => signOut()}>
+        <button className="" onClick={() => signOut()}>
           Sign Out
         </button>
       </div>

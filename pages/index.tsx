@@ -9,12 +9,12 @@ export default function Home() {
   const { data: profiles } = usePublicProfiles();
 
   return (
-    <Layout style={{ padding: "50px 0 100px 0" }} title="Homer Family Cookbook">
+    <Layout title="Homer Family Cookbook">
       {!session ? (
         <Auth />
       ) : (
-        <div className="row">
-          <div className="col-12">
+        <div className="">
+          <div className="">
             <h3>Public Profiles</h3>
             <ProfileList profiles={profiles} />
           </div>

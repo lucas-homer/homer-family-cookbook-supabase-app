@@ -21,42 +21,28 @@ const Layout = ({
     await supabase.auth.signOut();
   }
   return (
-    <div className="container" style={style}>
+    <div className="container mx-auto pt-10" style={style}>
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <header>
-        <nav
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "baseline",
-            gap: "4px"
-          }}
-        >
+        <nav className="flex justify-end align-baseline gap-4 text-xl">
           <Link href="/">
             <a>Home</a>
           </Link>{" "}
           {user && (
-            <>
-              |{" "}
+            <div>
               <Link href="/account">
                 <a>Profile</a>
               </Link>{" "}
-              <button style={{ marginLeft: 4 }} onClick={handleSignOut}>
-                Sign Out
-              </button>
-            </>
+            </div>
           )}
-          {/* |{" "}
-        <Link href="/users">
-          <a>Users List</a>
-        </Link>{" "} */}
+          {user && <button onClick={handleSignOut}>Sign Out</button>}
         </nav>
       </header>
-      {children}
+      <main className="pt-8">{children}</main>
       <Footer />
     </div>
   );
