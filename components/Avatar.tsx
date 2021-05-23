@@ -9,7 +9,7 @@ export default function Avatar({
 }: {
   url: string | null;
   size: number;
-  className: string | undefined;
+  className?: string;
 }) {
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
 
