@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <UserContextProvider supabaseClient={supabase}>
-        <Component {...pageProps} />;
+        <Component {...pageProps} className="h-screen" />;
       </UserContextProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

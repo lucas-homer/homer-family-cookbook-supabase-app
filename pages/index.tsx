@@ -13,12 +13,10 @@ export default function Home() {
       {!session ? (
         <Auth />
       ) : (
-        <div className="">
-          <div className="">
-            <h3>Public Profiles</h3>
-            <ProfileList profiles={profiles} />
-          </div>
-        </div>
+        <>
+          <h3 className="mb-4">Public Profiles</h3>
+          <ProfileList profiles={profiles} />
+        </>
       )}
     </Layout>
   );
